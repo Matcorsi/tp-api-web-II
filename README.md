@@ -30,8 +30,6 @@ Accede a un libro utilizando su ID.
 GET http://localhost/api/libros/:id
 📝 **Nota:** Reemplaza `:id` por el ID del libro deseado.
 
----
-
 ### **3. Agregar un nuevo libro**
 Permite agregar un libro enviando los datos en formato JSON.
 
@@ -68,6 +66,8 @@ Obtén una lista de libros que pertenezcan a un género específico.
   GET http://localhost/api/libros?genero_id=1
 
   ## ⚙️ **Configuración del Proyecto**
+
+---
 
 ### **Archivos Principales**
 - **`config.php`:** Configuración de conexión a la base de datos (host, usuario, contraseña, etc.).  
