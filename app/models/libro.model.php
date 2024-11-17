@@ -79,5 +79,19 @@ class LibroModel {
     
         return $query->fetchAll(PDO::FETCH_OBJ); 
     }
+
+    public function getLibrosOrdenadosPorTitulo($direccion = 'asc') {
+        $direccion = ($direccion === 'desc') ? 'DESC' : 'ASC';
+    
+        $query = $this->db->prepare("
+            SELECT * 
+            FROM libros 
+            ORDER BY titulo $direccion
+        ");
+        $query->execute();
+    
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+    
     
 }

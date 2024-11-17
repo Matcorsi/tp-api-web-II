@@ -62,8 +62,16 @@ Obtén una lista de libros que pertenezcan a un género específico.
 
 - **Verbo HTTP:** `GET`  
 - **Ejemplo de uso:**  
-GET http://localhost/api/libros?genero=Fantasía
-📝 **Nota:** Reemplaza `Fantasía` por el genero que se desea filtrar.
+GET http://localhost/api/libros?genero=nombre
+📝 **Nota:** Reemplaza `nombre` por el nombre del genero que se desea filtrar, por ejemplo , `Fantasía o Ciencia`.
+
+### **2. Ordenamiento de libros por titulo**
+Obtén una lista ordenada ascendente o descendente de libros por su título.
+
+- **Verbo HTTP:** `GET`  
+- **Ejemplo de uso:**  
+GET http://localhost/api/libros?direccion=direc
+📝 **Nota:** Reemplaza `direc` por el orden que deseas, `asc`(orden ascendente) o `desc`(orden descendente).
 
 ---
 

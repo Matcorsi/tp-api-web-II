@@ -14,7 +14,8 @@ class LibroApiController {
     // /api/libros
     public function getAll($req, $res) {
         $generoNombre = isset($req->query->genero) ? $req->query->genero : null;
-
+        $direccion = isset($req->query->direccion) ? $req->query->direccion : null;
+    
         if ($generoNombre) {
             $libros = $this->model->getLibrosPorGeneroNombre($generoNombre);
     
@@ -22,6 +23,9 @@ class LibroApiController {
                 return $this->view->response("No se encontraron libros para el género '$generoNombre'", 404);
             }
     
+            return $this->view->response($libros);
+        } elseif ($direccion) {
+            $libros = $this->model->getLibrosOrdenadosPorTitulo($direccion);
             return $this->view->response($libros);
         } else {
             $libros = $this->model->getLibros();
