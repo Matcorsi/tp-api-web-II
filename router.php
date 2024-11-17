@@ -8,12 +8,13 @@
 
     $router->addMiddleware(new JWTAuthMiddleware());
 
-    #                 endpoint        verbo      controller              metodo
-    $router->addRoute('libros'      ,'GET',      'LibroApiController',   'getAll');
-    $router->addRoute('libros/:id'  ,'GET',      'LibroApiController',   'get'   );
-    $router->addRoute('libros'      ,'POST',     'LibroApiController',   'create');
-    $router->addRoute('libros/:id'  ,'DELETE',   'LibroApiController',   'delete');
-    
+    #                 endpoint                verbo      controller              metodo
+    $router->addRoute('libros'               ,'GET',      'LibroApiController',   'getAll');
+    $router->addRoute('libros/:id'           ,'GET',      'LibroApiController',   'get'   );
+    $router->addRoute('libros'               ,'POST',     'LibroApiController',   'create');
+    $router->addRoute('libros/:id'           ,'DELETE',   'LibroApiController',   'delete');
+    $router->addRoute('libros?genero=nombre' , 'GET',     'LibroApiController',   'getAll');
+
     $router->setDefaultRoute('ReviewsController', 'pageNotFound');
 
     $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']);

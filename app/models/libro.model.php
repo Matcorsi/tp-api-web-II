@@ -68,16 +68,16 @@ class LibroModel {
         $query->execute([$titulo, $autor, $reseña, $genero_id, $id]);
     }
 
-    public function getLibrosPorGenero($generoId) {
+    public function getLibrosPorGeneroNombre($generoNombre) {
         $query = $this->db->prepare('
             SELECT libros.*, generos.nombre AS genero_nombre, generos.descripcion AS genero_descripcion
             FROM libros
             JOIN generos ON libros.genero_id = generos.id
-            WHERE generos.id = ?
+            WHERE generos.nombre = ?
         ');
-        $query->execute([$generoId]);
-        
-        $libros = $query->fetchAll(PDO::FETCH_OBJ); 
-        return $libros;
-    }  
+        $query->execute([$generoNombre]);
+    
+        return $query->fetchAll(PDO::FETCH_OBJ); 
+    }
+    
 }

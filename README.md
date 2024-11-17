@@ -62,7 +62,8 @@ Obtén una lista de libros que pertenezcan a un género específico.
 
 - **Verbo HTTP:** `GET`  
 - **Ejemplo de uso:**  
-GET http://localhost/api/libros?genero_id=1
+GET http://localhost/api/libros?genero=Fantasía
+📝 **Nota:** Reemplaza `Fantasía` por el genero que se desea filtrar.
 
 ---
 

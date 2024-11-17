@@ -13,8 +13,20 @@ class LibroApiController {
 
     // /api/libros
     public function getAll($req, $res) {
-        $libros = $this->model->getLibros();
-        return $this->view->response($libros);
+        $generoNombre = isset($req->query->genero) ? $req->query->genero : null;
+
+        if ($generoNombre) {
+            $libros = $this->model->getLibrosPorGeneroNombre($generoNombre);
+    
+            if (empty($libros)) {
+                return $this->view->response("No se encontraron libros para el género '$generoNombre'", 404);
+            }
+    
+            return $this->view->response($libros);
+        } else {
+            $libros = $this->model->getLibros();
+            return $this->view->response($libros);
+        }
     }
 
     // /api/libros/:id
@@ -65,7 +77,6 @@ class LibroApiController {
         $this->model->eraseLibro($id);
         $this->view->response("El libro con el id=$id se eliminó con éxito");
     }
-
 
 
 }
