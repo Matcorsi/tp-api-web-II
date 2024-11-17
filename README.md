@@ -62,12 +62,11 @@ Obtén una lista de libros que pertenezcan a un género específico.
 
 - **Verbo HTTP:** `GET`  
 - **Ejemplo de uso:**  
-  ```bash
-  GET http://localhost/api/libros?genero_id=1
-
-  ## ⚙️ **Configuración del Proyecto**
+GET http://localhost/api/libros?genero_id=1
 
 ---
+
+## ⚙️ **Configuración del Proyecto**
 
 ### **Archivos Principales**
 - **`config.php`:** Configuración de conexión a la base de datos (host, usuario, contraseña, etc.).  
